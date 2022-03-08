@@ -1,26 +1,18 @@
-import React from "react"
+import { useState } from "react";
 import MenuItem from "../Menu-Item/Menu-Item";
-import "./Directory.styles.scss"
-import { sections } from "../../data/directory.data";
+import "./Directory.styles.scss";
+import { collections } from "../../data/directory.data";
 
-class Directory extends React.Component{
-    constructor(){
-        super();
+const Directory = () => {
+  const [sections, setSections] = useState(collections);
 
-        this.state = {
-            sections: sections
-        }
-    }
-    
-    render(){
-        return (
-            <div className="directory-menu">
-                {this.state.sections.map(({id, ...menuItemProps}) => (
-                    <MenuItem key={id} {...menuItemProps} />
-                ))}
-            </div>
-        )
-    }
-}
+  return (
+    <div className="directory-menu">
+      {sections.map(({ id, ...menuItemProps }) => (
+        <MenuItem key={id} {...menuItemProps} />
+      ))}
+    </div>
+  );
+};
 
 export default Directory;
