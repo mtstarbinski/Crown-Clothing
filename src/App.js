@@ -6,16 +6,27 @@ import Hats from "./components/Hats";
 import Shop from "./pages/Shop/Shop.jsx";
 import Header from "./components/Header/Header.jsx";
 import LoginAndRegister from "./pages/Login-Register/LoginAndRegister";
-import {auth} from "./firebase/firebase.utils";
+import {auth, createUserProfileDocument} from "./firebase/firebase.utils";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState({});
 
   useEffect(()=> {
-   var unsubscribeFromAuth = () => auth.onAuthStateChanged(user => {
-      setCurrentUser(user);
+   var unsubscribeFromAuth = () => auth.onAuthStateChanged(async userAuth => {
+      if (userAuth){
+        const userRef = await createUserProfileDocument(userAuth);
 
-      console.log(user);
+        userRef.onSnapshot(snapShot => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
+          })
+        })
+      } else {
+        setCurrentUser(null)
+      }
+
+      setCurrentUser(userAuth)
     })
     return unsubscribeFromAuth();
 
