@@ -16,7 +16,7 @@ const Signin = () => {
 
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      this.setSignInData({
+      setSignInData({
         email: "",
         password: "",
       })
@@ -60,7 +60,7 @@ const Signin = () => {
         />
         <div className="buttons">
           <Button type="submit">Sign In</Button>
-          <Button onClick={signInWithGoogle} isGoogleSignIn>Sign in with Google</Button>
+          <Button type="button" onClick={signInWithGoogle} isGoogleSignIn>Sign in with Google</Button>
         </div>
       </form>
     </div>
