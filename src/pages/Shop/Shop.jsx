@@ -1,5 +1,5 @@
 import React from "react";
-import PreviewCollection from "../../components/PreviewCollection/PreviewCollection";
+import PreviewCollection from "../../components/Preview-Collection/PreviewCollection";
 import SHOP_DATA from "../../data/shop.data";
 
 class Shop extends React.Component {

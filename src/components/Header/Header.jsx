@@ -4,8 +4,8 @@ import "./Header.styles.scss";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from 'react-redux';
-import CartIcon from "../CartIcon/CartIcon";
-import CartDropdown from "../CartDropdown/CartDropdown";
+import CartIcon from "../Cart-Icon/CartIcon";
+import CartDropdown from "../Cart-Dropdown/CartDropdown";
 
 const Header = ({ currentUser, hidden }) => {
   return (
