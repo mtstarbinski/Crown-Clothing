@@ -1,5 +1,5 @@
 import React from "react";
-import "./CarDropdown.style.scss";
+import "./CartDropdown.style.scss";
 import Button from "../Button/Button";
 
 const CartDropdown = () => (

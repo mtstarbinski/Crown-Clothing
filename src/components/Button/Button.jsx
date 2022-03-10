@@ -2,9 +2,9 @@ import React from 'react'
 import './Button.style.scss'
 
 
-const Button = ({children, isGoogleSignIn, ...props}) => {
+const Button = ({children, isGoogleSignIn, inverted, ...props}) => {
   return (
-    <button className={`custom-button ${isGoogleSignIn ? 'google-sign-in' : ''}`} {...props}>
+    <button className={`${inverted ? 'inverted' : ''} ${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`} {...props}>
         {children}
     </button>
   )
