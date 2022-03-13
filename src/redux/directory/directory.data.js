@@ -1,4 +1,4 @@
-export const collections = [
+const sections = [
   {
     title: 'hats',
     imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
@@ -32,3 +32,5 @@ export const collections = [
     linkUrl: 'shop/mens'
   }
 ];
+
+export default sections;

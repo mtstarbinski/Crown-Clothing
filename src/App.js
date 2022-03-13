@@ -2,15 +2,14 @@ import "./App.css";
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage";
-import Hats from "./components/Hats";
 import Shop from "./pages/Shop/Shop.jsx";
 import Header from "./components/Header/Header.jsx";
 import LoginAndRegister from "./pages/Login-Register/LoginAndRegister";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.actions";
-import { selectCurrentUser } from './redux/user/user.selectors'
-import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from "./redux/user/user.selectors";
+import { createStructuredSelector } from "reselect";
 import Checkout from "./pages/Checkout/Checkout";
 
 class App extends React.Component {
@@ -43,14 +42,7 @@ class App extends React.Component {
         <Routes>
           <Route path="/">
             <Route index element={<Homepage />} />
-            <Route path="shop/">
-              <Route index element={<Shop />} />
-              <Route path="hats" element={<Hats />} />
-              <Route path="jackets" element={<Hats />} />
-              <Route path="sneakers" element={<Hats />} />
-              <Route path="womens" element={<Hats />} />
-              <Route path="mens" element={<Hats />} />
-            </Route>
+            <Route path="shop/*" element={<Shop />} />
             <Route
               path="signin"
               element={
@@ -61,7 +53,7 @@ class App extends React.Component {
                 )
               }
             />
-            <Route path="checkout" element={<Checkout />}/>
+            <Route path="checkout" element={<Checkout />} />
           </Route>
         </Routes>
       </>
