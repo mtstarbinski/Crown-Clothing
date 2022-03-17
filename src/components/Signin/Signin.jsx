@@ -21,7 +21,16 @@ const Signin = () => {
         password: "",
       })
     } catch (err) {
-      console.log(err);
+      switch (err.code) {
+        case "auth/user-not-found":
+          alert("No account exists with this email address!");
+          break;
+        case "auth/wrong-password":
+          alert("Incorrect password.");
+          break;
+        default:
+          alert("Something went wrong.");
+      }
     }
 
     setSignInData({ email: "", password: "" });

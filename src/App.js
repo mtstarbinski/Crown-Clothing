@@ -54,6 +54,7 @@ class App extends React.Component {
               }
             />
             <Route path="checkout" element={<Checkout />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>
       </>

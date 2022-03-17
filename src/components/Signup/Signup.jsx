@@ -34,8 +34,17 @@ const Signup = () => {
         confPassword: "",
       });
     } catch (err) {
-      console.error(err.message);
-      alert(err.message);
+      switch (err.code) {
+        case "auth/email-already-in-use":
+          alert("Cannot create account, email already in use.");
+          break;
+        case "auth/weak-password":
+          alert("Password must be at least 6 characters.");
+          break;
+        default:
+          alert("Something went wrong.");
+          console.error(err.message);
+      }
     }
   };
 
